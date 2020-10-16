@@ -29,7 +29,7 @@ const StyledHome = styled.div`
 export default function Home() {
 	const history = useHistory();
 	const routeToOrderForm = () => {
-		console.log('history', history);
+		// console.log('history', history);
 		history.push('/order-form');
 	};
 

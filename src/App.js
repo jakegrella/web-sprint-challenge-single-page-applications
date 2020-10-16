@@ -45,25 +45,23 @@ export default function App() {
 	const [formErrors, setFormErrors] = useState(initialFormErrors);
 	const [disabled, setDisabled] = useState(initialDisabled);
 
-	const getOrders = () => {
-		axios
-			.get(`https://reqres.in/api/unknown`)
-			.then((res) => {
-				setOrders(res.data);
-			})
-			.catch((err) => {
-				console.dir(err);
-				alert(`Got an error there bud.`);
-			});
-	};
+	// const getOrders = () => {
+	// 	axios
+	// 		.get(`https://reqres.in/api/unknown`)
+	// 		.then((res) => {
+	// 			setOrders(res.data);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.dir(err);
+	// 			alert(`Got an error there bud.`);
+	// 		});
+	// };
 
 	const postNewOrder = (newOrder) => {
-		console.log('new order outside axios', 'test test test', newOrder);
 		axios
 			.post('https://reqres.in/api/unknown', newOrder)
 			.then((res) => {
-				console.log('newOrder inside axios', newOrder);
-				setOrders([res, ...orders]);
+				setOrders([...orders, res.data]);
 				setFormValues(initialFormValues);
 			})
 			.catch((err) => {
@@ -116,12 +114,13 @@ export default function App() {
 			glutenFreeCrust: formValues.glutenFreeCrust,
 			specialInstructions: formValues.specialInstructions,
 		};
+		console.log('New Order', newOrder);
 		postNewOrder(newOrder);
 	};
 
-	useEffect(() => {
-		getOrders();
-	}, []);
+	// useEffect(() => {
+	// 	getOrders();
+	// }, []);
 
 	useEffect(() => {
 		schema.isValid(formValues).then((valid) => {

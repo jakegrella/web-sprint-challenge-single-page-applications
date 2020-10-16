@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledOrderForm = styled.form`
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: flex-start;
@@ -11,10 +11,14 @@ const StyledOrderForm = styled.form`
 	/* justify-content: center; */
 
 	.form-section {
-		border: 1px solid blue;
+		/* border: 1px solid blue; */
 		display: flex;
 		flex-flow: column nowrap;
 		margin-bottom: 2%;
+	}
+	.errors {
+		font-size: 2rem;
+		color: red;
 	}
 `;
 
