@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Route, Switch } from 'react-router-dom';
-
-import Home from './Home';
-import Help from './Help';
-import OrderForm from './OrderForm';
+import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.div`
 	/* border: 1px solid red; */
@@ -39,18 +35,6 @@ export default function Header() {
 					<Link to='/help'>Help</Link>
 				</nav>
 			</StyledHeader>
-			{/* switch outside styled header so pages don't load inside header */}
-			<Switch>
-				<Route path={'/help'}>
-					<Help />
-				</Route>
-				<Route path={'/order-form'}>
-					<OrderForm />
-				</Route>
-				<Route exact path={'/'}>
-					<Home />
-				</Route>
-			</Switch>
 		</>
 	);
 }

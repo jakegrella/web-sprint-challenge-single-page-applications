@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-import axios from 'axios';
-import * as yup from 'yup';
-import schema from '../validation/formSchema';
 
 const StyledOrderForm = styled.form`
 	border: 1px solid red;
@@ -22,38 +18,8 @@ const StyledOrderForm = styled.form`
 	}
 `;
 
-const initialFormValues = {
-	name: '',
-	size: '',
-	sauce: '',
-	pepperoni: false,
-	sausage: false,
-	canadianBacon: false,
-	spicyItalianSausage: false,
-	grilledChicken: false,
-	onions: false,
-	greenPepper: false,
-	dicedTomatoes: false,
-	blackOlives: false,
-	roastedGarlic: false,
-	artichokeHearts: false,
-	threeCheese: false,
-	pineapple: false,
-	extraCheese: false,
-	glutenFreeCrust: false,
-	specialInstructions: '',
-};
-const initialOrder = [];
-const initialDisabled = true;
-
 export default function OrderForm(props) {
-	const { values, submit, change, errors } = props;
-
-	const [order, setOrder] = useState(initialOrder);
-	const [formValues, setFormValues] = useState(initialFormValues);
-	const [formErrors, setFormErrors] = useState(initialFormErrors);
-	const [disabled, setDisabled] = useState(initialDisabled);
-
+	const { values, submit, change, disabled, errors } = props;
 	const onChange = (evt) => {
 		const { name, value, type, checked } = evt.target;
 		const valueToUse = type === 'checkbox' ? checked : value;
@@ -69,7 +35,7 @@ export default function OrderForm(props) {
 		<StyledOrderForm onSubmit={onSubmit}>
 			<div className='form-section'>
 				<h4>Build Your Own Pizza</h4>
-				<img />
+				{/* <img /> */}
 				<h2>Build Your Own Pizza</h2>
 			</div>
 
